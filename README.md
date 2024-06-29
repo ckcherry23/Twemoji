@@ -4,8 +4,6 @@
 
 This project aims to predict corresponding emojis associated with tweets through users’ text and relevant hashtag annotations given by users. We conduct sentiment analysis using two different emebeddings and testing it on various linear and neural network models.
 
-<br>
-
 ## Structure
 
 ```
@@ -48,24 +46,16 @@ CS3244-Twemoji
 
 The dataset used has been compiled by the Amsterdam University of Applied Sciences and published in 2018, and is a collection of **13 million tweets (instances)** consisting of features like tweets IDs, annotations from the emoji csv and links of attached images in the tweets.
 
-<br>
-
 It can be found here - [Twemoji Dataset](https://uvaauas.figshare.com/articles/dataset/Twemoji_Dataset/5822100)
-
-<br>
 
 We also supplemented our dataset with additional tweets using Twitter scraping APIs.
 
 - [Tweepy](https://docs.tweepy.org/en/stable/client.html)
 - [EmoTag](https://github.com/abushoeb/EmoTag)
 
-<br>
-
 ## **Emojis Used**
 
 We started off by first choosing the top 20 most frequently used emojis in the training data. However, model training took up excessive time due to the large amount of data and similarity between some emojis, so we scaled down to 5 emojis that have distinct meaning.
-
-<br>
 
 - 0 - ❤️(186)
 - 1 - 😂 (1381)
@@ -73,47 +63,29 @@ We started off by first choosing the top 20 most frequently used emojis in the t
 - 3 - 😍 (1392)
 - 4 - 🙄 (1447)
 
-<br>
-
 ## **Word Embeddings**
 
 For this kind of text classification task, word embeddings are essential to represent words in an encoded way that machine learning models can understand. The two embeddings we ultimately chose for our models are:
-
-<br>
 
 ### **1. Pre-trained GLoVe Embeddings**
 
 GloVe stands for _Global Vectors for Word Representation_. It is an unsupervised learning algorithm that calculates the co-occurrences of a word with another word within a corpus. Hence, it is able to obtain semantic relationships between words.
 
-<br>
-
 We used the pre-trained GloVe embeddings by Stanford and specifically the pre-trained model of Twitter corpora. It consists of 2 billion tweets, and 27 billion tokens of dimension 50.
 
-<br>
-
 It can be found here - [GloVe Embeddings](https://nlp.stanford.edu/projects/glove/)
-
-<br>
 
 ### **2. TF-IDF Vectorizer**
 
 TF-IDF stands for _Term Frequency - Inverse Document Frequency_ . It uses a statistical measure to determine the significance of words in a corpus. It considers how frequent a word appears in a document and giving different weight to those that appear often across documents.
 
-<br>
-
 We used sklearn's TfidfVectorizer to convert our collection of preprocessed tweets into a matrix of TF-IDF features.
 
-<br>
-
 It can be found here - [Sklearn's TFIDF Embedding](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
-
-<br>
 
 ## **Models Considered**
 
 We run our twemoji prediction task on both linear and neural network models. They are as specified below.
-
-<br>
 
 - SVM
 - Random forest
@@ -123,7 +95,6 @@ We run our twemoji prediction task on both linear and neural network models. The
 - BiLSTM
 - BerTweet
 - DistilBert
-<br>
 
 ## **References**
 
